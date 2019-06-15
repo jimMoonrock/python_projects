@@ -1,0 +1,3 @@
+While The Python Language Reference describes the exact syntax and semantics of the Python language,
+ this library reference manual describes the standard library that is distributed with Python. It
+ also describes some of the optional components that are commonly included in Python distributions.
