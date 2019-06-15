@@ -3,12 +3,12 @@ for line in open('task1.txt','r'):
     new_list.append(line.replace('\n',''))
     list_words.append(line.replace('\n','').lower().replace(',','').replace('.',' '))
 
-new_list = " ".join(new_list).split('.')
+new_list = ' '.join(new_list).split('.')
 for word in new_list:
     if word == '':
         new_list.remove(word)
 
-list_words = " ".join(list_words).split(' ')
+list_words = ' '.join(list_words).split(' ')
 
 for word in list_words:
     if word == '':
