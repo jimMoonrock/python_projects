@@ -1,12 +1,16 @@
 list_words, dict_words, new_list = [], {}, []
 for line in open('task1.txt','r'):
-    new_list.append(line.replace('\n',''))
+    #new_list.append(line.replace('\n',''))
     list_words.append(line.replace('\n','').lower().replace(',','').replace('.',' '))
 
-new_list = ' '.join(new_list).split('.')
+# new_list = ' '.join(new_list).split('.')
+new_list = ' '.join([file.replace('\n','') for file in open('task1.txt', 'r')]).split('.')
+
 for word in new_list:
     if word == '':
         new_list.remove(word)
+print(new_list)
+
 
 list_words = ' '.join(list_words).split(' ')
 
