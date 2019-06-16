@@ -1,17 +1,15 @@
+import re
 def main():
     list_words, dict_words, new_list = [], {}, []
 
     for line in open('task1.txt'):
         list_words.append(line.replace('\n','').lower().replace(',','').replace('.',' '))
 
-    # Разбивать строки не только по ТОЧКЕ(.)
-    #   new_list = ' '.join([file.replace('\n','') for file in open('task1.txt')]).split('.' or "?" or "!" )
-    new_list = ' '.join([file.replace('\n','') for file in open('task1.txt')]).split('.' or "?" or "!" )
+    new_list = re.split(r'[.?!]', ' '.join([file.replace('\n','') for file in open('task1.txt')]))
 
     for word in new_list:
         if word == '':
             new_list.remove(word)
-    print(new_list)
 
     list_words = ' '.join(list_words).split(' ')
 
@@ -21,7 +19,6 @@ def main():
 
     new_spl = ''.join([x[1:] if x.startswith(' ') else x for x in ' '.join(list_words).split('.')]).split(' ')
 
-    # Cделать дробное, с 2 знаками после запятой
     count_words = float("{:0.2f}".format(len(new_spl) / len(new_list)))
 
     for word in list_words:
