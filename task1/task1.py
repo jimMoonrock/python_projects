@@ -1,4 +1,5 @@
 import re
+from statistics import median
 
 def main():
     list_words, dict_words, new_list = [], {}, []
@@ -7,6 +8,14 @@ def main():
         list_words.append(line.replace('\n','').lower().replace(',','').replace('.',' '))
 
     new_list = re.split(r'[.?!]', ' '.join([file.replace('\n','') for file in open('task1.txt')]))
+
+    # Медиана слов
+    with open("task1.txt") as f:
+        median_words = re.split(r'[.?!]',f.read().replace('\n',''))
+        for word in median_words:
+            if word == '':
+                median_words.remove(word)
+        median_words = median([len(word.split()) for word in median_words])
 
     for word in new_list:
         if word == '':
@@ -17,6 +26,7 @@ def main():
     for word in list_words:
         if word == '':
             list_words.remove(word)
+    print(list_words)
 
     new_spl = ''.join([x[1:] if x.startswith(' ') else x for x in ' '.join(list_words).split('.')]).split(' ')
 
@@ -33,6 +43,8 @@ def main():
 
     if list_words:
         print(f'Среднее количество слов в предложении: {count_words}')
+
+    print(f"Медианное количество слов в предложение: {median_words}")
 
 
 if __name__ == '__main__':
