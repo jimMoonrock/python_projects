@@ -1,4 +1,5 @@
 import re
+
 def main():
     list_words, dict_words, new_list = [], {}, []
 
