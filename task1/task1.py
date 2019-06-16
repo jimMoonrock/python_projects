@@ -1,10 +1,10 @@
 def main():
     list_words, dict_words, new_list = [], {}, []
 
-    for line in open('task1.txt','r'):
+    for line in open('task1.txt'):
         list_words.append(line.replace('\n','').lower().replace(',','').replace('.',' '))
 
-    new_list = ' '.join([file.replace('\n','') for file in open('task1.txt', 'r')]).split('.')
+    new_list = ' '.join([file.replace('\n','') for file in open('task1.txt')]).split('.')
 
     for word in new_list:
         if word == '':
@@ -29,7 +29,7 @@ def main():
         else:
             print(f'Слово - {words} повторяется: {count} раз')
 
-    if len(list_words) >= 1:
+    if list_words:
         print(f'Среднее количество слов в предложении: {count_words}')
 
 
