@@ -1,10 +1,10 @@
-def main(text_doc='task1.txt'):
+def main():
     list_words, dict_words, new_list = [], {}, []
 
-    for line in open(text_doc,'r'):
+    for line in open('task1.txt','r'):
         list_words.append(line.replace('\n','').lower().replace(',','').replace('.',' '))
 
-    new_list = ' '.join([file.replace('\n','') for file in open(text_doc, 'r')]).split('.')
+    new_list = ' '.join([file.replace('\n','') for file in open('task1.txt', 'r')]).split('.')
 
     for word in new_list:
         if word == '':
@@ -33,3 +33,5 @@ def main(text_doc='task1.txt'):
         print(f'Среднее количество слов в предложении: {count_words}')
 
 
+if __name__ == '__main__':
+    main()
