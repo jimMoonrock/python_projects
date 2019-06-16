@@ -25,9 +25,9 @@ def main():
 
     for words,count in dict_words.items():
         if  str(count) in ['2','3','4']:
-            print(f'Слово - {words} повторяется {count}: разa')
+            print(f'Слово - {words} повторяется: {count} разa')
         else:
-            print(f'Слово - {words} повторяется {count}: раз')
+            print(f'Слово - {words} повторяется: {count} раз')
 
     if len(list_words) >= 1:
         print(f'Среднее количество слов в предложении: {count_words}')
