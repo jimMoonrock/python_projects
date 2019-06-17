@@ -7,7 +7,7 @@ def main():
     with open('task1.txt') as file:
         s += file.read()
 
-    # Медиана слов
+    # Medians
     new_list = re.split(r'[.?!]',s.replace('\n',''))
     for word in new_list:
         if word == '':
