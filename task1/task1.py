@@ -14,7 +14,6 @@ def main():
 
     median_words = median([len(word.split()) for word in list_with_text])
 
-
     list_words = ' '.join(list_with_text).split(' ')
     for word in list_words:
         if word == '':
@@ -32,9 +31,9 @@ def main():
 
     dict_words = {word: list_words.count(word) for word in list_words}
 
-    num_list = ['2', '3', '4']
+    num_tuple = ('2', '3', '4')
     for words, count in dict_words.items():
-        if  str(count)[-1] in num_list:
+        if  str(count)[-1] in num_tuple:
             print(f'Слово - {words} повторяется: {count} разa')
         else:
             print(f'Слово - {words} повторяется: {count} раз')
