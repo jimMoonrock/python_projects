@@ -2,7 +2,6 @@ import re
 from statistics import median
 
 def main():
-    new_spl, num_list = [], ['2', '3', '4']
 
     with open('task1.txt') as file:
         text = file.read()
@@ -21,6 +20,7 @@ def main():
         if word == '':
             list_words.remove(word)
 
+    new_spl = []
     for word in ' '.join(list_words).split('.'):
         if word.startswith(' '):
             new_spl.append(word[1:])
@@ -32,6 +32,7 @@ def main():
 
     dict_words = {word: list_words.count(word) for word in list_words}
 
+    num_list = ['2', '3', '4']
     for words, count in dict_words.items():
         if  str(count)[-1] in num_list:
             print(f'Слово - {words} повторяется: {count} разa')
