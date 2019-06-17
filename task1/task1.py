@@ -1,6 +1,7 @@
 import re
 from statistics import median
 
+
 def main():
 
     with open('task1.txt') as file:
@@ -33,10 +34,10 @@ def main():
 
     num_tuple = ('2', '3', '4')
     for words, count in dict_words.items():
-        if  str(count)[-1] in num_tuple:
-            print(f'Слово - {words} повторяется: {count} разa')
+        if str(count)[-1] in num_tuple:
+            print('Слово - {} повторяется: {} разa'.format(words, count))
         else:
-            print(f'Слово - {words} повторяется: {count} раз')
+            print('Слово - {} повторяется: {} раз'.format(words, count))
 
     if list_words:
         print('Среднее количество слов в предложении: {:0.2f}'.format(float(count_words)))
