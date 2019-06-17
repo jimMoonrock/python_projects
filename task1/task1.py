@@ -2,27 +2,27 @@ import re
 from statistics import median
 
 def main():
-    dict_words, s = {}, ''
+    dict_words, text = {}, ''
 
     with open('task1.txt') as file:
-        s += file.read()
+        text += file.read()
 
     # Medians
-    new_list = re.split(r'[.?!]',s.replace('\n',''))
-    for word in new_list:
+    list_with_text = re.split(r'[.?!]',text.replace('\n',''))
+    for word in list_with_text:
         if word == '':
-            new_list.remove(word)
+            list_with_text.remove(word)
 
-    median_words = median([len(word.split()) for word in new_list])
+    median_words = median([len(word.split()) for word in list_with_text])
 
-    list_words = ' '.join(new_list).split(' ')
+    list_words = ' '.join(list_with_text).split(' ')
     for word in list_words:
         if word == '':
             list_words.remove(word)
 
     new_spl = ''.join([x[1:] if x.startswith(' ') else x for x in ' '.join(list_words).split('.')]).split(' ')
 
-    count_words = float("{:0.2f}".format(len(new_spl) / len(new_list)))
+    count_words = float("{:0.2f}".format(len(new_spl) / len(list_with_text)))
 
     for word in list_words:
         dict_words.update({word: list_words.count(word)})
