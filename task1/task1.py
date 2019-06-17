@@ -2,31 +2,23 @@ import re
 from statistics import median
 
 def main():
-    list_words, dict_words, new_list = [], {}, []
+    dict_words, s = {}, ''
 
-    for line in open('task1.txt'):
-        list_words.append(line.replace('\n','').lower().replace(',','').replace('.',' '))
-
-    new_list = re.split(r'[.?!]', ' '.join([file.replace('\n','') for file in open('task1.txt')]))
+    with open('task1.txt') as file:
+        s += file.read()
 
     # Медиана слов
-    with open("task1.txt") as f:
-        median_words = re.split(r'[.?!]',f.read().replace('\n',''))
-        for word in median_words:
-            if word == '':
-                median_words.remove(word)
-        median_words = median([len(word.split()) for word in median_words])
-
+    new_list = re.split(r'[.?!]',s.replace('\n',''))
     for word in new_list:
         if word == '':
             new_list.remove(word)
 
-    list_words = ' '.join(list_words).split(' ')
+    median_words = median([len(word.split()) for word in new_list])
 
+    list_words = ' '.join(new_list).split(' ')
     for word in list_words:
         if word == '':
             list_words.remove(word)
-    print(list_words)
 
     new_spl = ''.join([x[1:] if x.startswith(' ') else x for x in ' '.join(list_words).split('.')]).split(' ')
 
@@ -36,7 +28,7 @@ def main():
         dict_words.update({word: list_words.count(word)})
 
     for words,count in dict_words.items():
-        if  str(count) in ['2','3','4']:
+        if  str(count)[-1] in ['2','3','4']:
             print(f'Слово - {words} повторяется: {count} разa')
         else:
             print(f'Слово - {words} повторяется: {count} раз')
