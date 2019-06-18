@@ -9,9 +9,7 @@ def main():
 
     # Medians
     list_with_text = re.split(r'[.?!]', text.replace('\n', ''))
-    for word in list_with_text:
-        if word == '':
-            list_with_text.remove(word)
+    list_with_text = list(filter(lambda x : x != '', list_with_text))
 
     median_words = median([len(word.split()) for word in list_with_text])
 
