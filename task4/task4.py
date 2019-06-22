@@ -21,9 +21,8 @@ def palindrome_3(s):
     for word in s:
         if s[first] != s[last]:
             return 'Not Palindrome'
-        else:
-            first += 1
-            last -= 1
+        first += 1
+        last -= 1
     return 'Palindrome'
 
 print(palindrome_3('mad3am'))
