@@ -17,14 +17,13 @@ print(palindrome_2("Madam"))
 
 
 def palindrome_3(s):
-    first, last, flag = 0, -1, True
+    first, last = 0, -1
     for word in s:
-        if s[first] == s[last]:
+        if s[first] != s[last]:
+            return 'Not Palindrome'
+        else:
             first += 1
             last -= 1
-            flag = True
-        else:
-            flag = False
-    return "Palindrome" if flag == True else "Not Palindrome"
+    return 'Palindrome'
 
-print(palindrome_3('madam'))
+print(palindrome_3('mad3am'))
