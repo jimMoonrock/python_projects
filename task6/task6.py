@@ -25,3 +25,47 @@ def sort_nums(s):
     return sorted(list(map(int,s.split(' '))))
 
 print(sort_nums('3 22 1 6 5 4 7'))
+
+
+
+# сортировка пузырьком этого примера
+def bubble_sort(s):
+    a = list(map(int, s.split(' ')))
+    for i in range(len(a)):
+        for j in range(len(a)-1-i):
+            if a[j] > a[j+1]:
+                a[j], a[j+1] = a[j+1], a[j]
+    return a
+print(bubble_sort('3 22 1 6 5 4 7'))
+
+
+
+
+
+# Шейкерная сортировка  - https://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%
+# B2%D0%BA%D0%B0_%D0%BF%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D1%88%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%D0%BC#Python
+'''Образно алгоритм можно описать так: на каждом шаге основного цикла рассматривается массив a[Left]÷a[Right], 
+после выполнения двух внутренних циклов минимальный и максимальный элемент в исходном массиве перетекают к краям, 
+минимальный в — a[Left], максимальный — в a[Right]. Пусть максимальный элемент имеет индекс k, тогда массив можно 
+изобразить так: a[Left], a[1],..,a[k-1],A[k], a[k+1],..,a[Right];После сравнения A[k] с a[k+1] значение A[k] 
+перейдет в k+1-ую ячейку, после сравнения k+1-й c k+2-й — в k+2-eю, и так далее, пока он не сместится в крайне
+ правое положение с индексом Right. Аналогично для минимального. После выполнения цикла по всем подмассивам он 
+ отсортируется. Трассировка программы:'''
+def sheaker_sort(s):
+    a = list(map(int, s.split(' ')))
+
+    left = 0
+    right = len(a) - 1
+
+    while left <= right:
+        for i in range(left, right, +1):
+            if a[i] > a[i + 1]:
+                a[i], a[i + 1] = a[i + 1], a[i]
+        right -= 1
+
+        for i in range(right, left, -1):
+            if a[i - 1] > a[i]:
+                a[i], a[i - 1] = a[i - 1], a[i]
+        left += 1
+    return a
+print(sheaker_sort('3 22 1 6 5 4 7'))
