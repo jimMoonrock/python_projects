@@ -1,0 +1,30 @@
+def cook_b(person):
+ 
+    if isinstance(person, int):
+        cook_books = [
+            {"fruit salad in a bad": [{"apple jampling": 60}, {"pitchens of pineapple": 80}, {"slices of melon": 77},
+                              {"Vine": 81}, {"Bilberry": 78}, {"Mint leaves": 20}]
+            },
+ 
+            {"crispy habrun potatoes": [{"grated potatoes ": 75}, {"vegetable iol": 60}, {"butter oil": 30}]
+            },
+ 
+            {"skin pasta with sun-dried tomatoes, goat cheese and green salad": [{"orekiette pasta": 28},
+                                {"Mediterranean salad mixes": 55}, {"dried tomatoes": 57}, {"goat cheese": 28},
+                                {"grated parmesan": 59}]
+            }
+        ]
+ 
+        for first_page in cook_books:
+            for dishes in first_page:
+                print(f"For cooking {dishes} for {person} person's, you need:")
+                for ingredients in first_page[dishes]:
+                    for food in ingredients:
+                        print(f"- Ingredient {food} for {person} person's need in "
+                              f"such quantities: {ingredients[food] * person}")
+            print()
+ 
+    else:
+        print(TypeError(f"You entered a string value - {person} and you need an integer value. "))
+ 
+print(cook_b(12))
